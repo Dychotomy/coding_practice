@@ -1,10 +1,8 @@
-const assert = require('chai').assert
-const expect = require('chai').expect
-const characterArrayFromString = require('./index.js').characterArrayFromString
-const getAnagram = require('./index.js').getAnagram
-const dict = require('./dict.js')
-// import assert from 'assert'
+import chai from 'chai'
+import { characterArrayFromString, getAnagram } from './index.js'
+import dict from './dict.js'
 
+const { assert, expect } = chai
 describe('converts a string to array of characters', function () {
     it('return an array', function () {
         const result = characterArrayFromString('documenting')

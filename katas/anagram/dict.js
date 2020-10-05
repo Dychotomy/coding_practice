@@ -272,4 +272,4 @@ const dict = ['acrobat', 'africa', 'alaska', 'albert', 'albino', 'album',
     'ego', 'fax', 'jet', 'job', 'rio', 'ski',
     'yes']
 
-module.exports = dict
+export default dict
