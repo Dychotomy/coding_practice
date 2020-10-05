@@ -1,6 +1,7 @@
 const assert = require('chai').assert
 const expect = require('chai').expect
 const characterArrayFromString = require('./index.js').characterArrayFromString
+const getAnagram = require('./index.js').getAnagram
 const dict = require('./dict.js')
 // import assert from 'assert'
 
@@ -21,3 +22,19 @@ describe('Word dictionary', function () {
         expect(dict).to.be.an('array').that.is.not.empty
     })
 })
+
+describe('Returns two word that is an anagram', function () {
+    it('should return the words document and gin', function () {
+        const result = getAnagram('documenting')
+        expect(result).to.include.members(['document', 'gin'])
+    })
+    it('should not care about word order', function () {
+        const result = getAnagram('documenting')
+        expect(result).to.include.members(['gin', 'document'])
+    })
+    it('should return the words race and car', function () {
+        const result = getAnagram('racecar')
+        expect(result).to.include.members(['race', 'car'])
+    })
+})
+
