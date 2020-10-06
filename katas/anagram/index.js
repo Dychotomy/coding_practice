@@ -6,8 +6,8 @@ export const characterArrayFromString = (input) => {
 }
 
 export const getAnagram = (input) => {
-    const chars = characterArrayFromString(input)
-    const dictionary = ['document', 'comet', 'gin', 'race', 'car']
+    const dictionary = ['document', 'comet', 'gin', 'race', 'ace', 'car']
+    let chars = characterArrayFromString(input)
 
     const foundAnagram = []
     dictionary.forEach((word) => {
@@ -20,6 +20,7 @@ export const getAnagram = (input) => {
         }
         if (foundWord) {
             foundAnagram.push(word)
+            chars = updateRemainingCharacters(chars, word)
         }
     })
     return foundAnagram
