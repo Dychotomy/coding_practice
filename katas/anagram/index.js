@@ -7,8 +7,7 @@ export const characterArrayFromString = (input) => {
 
 export const getAnagram = (input) => {
     const chars = characterArrayFromString(input)
-    const dictionary = ['document', 'gin', 'race', 'car']
-    // const dictionary = dict
+    const dictionary = ['document', 'comet', 'gin', 'race', 'car']
 
     const foundAnagram = []
     dictionary.forEach((word) => {
@@ -26,4 +25,16 @@ export const getAnagram = (input) => {
     return foundAnagram
 }
 
-// export default { characterArrayFromString, getAnagram }
+export const updateRemainingCharacters = (chars, foundWord) => {
+    const wordChars = foundWord.split('')
+    let remainingArray = chars
+    wordChars.forEach((c) => {
+        for (let i = 0; i < chars.length; i++) {
+            if (c === chars[i]) {
+                remainingArray.splice(i, 1)
+                break
+            }
+        }
+    })
+    return remainingArray
+}

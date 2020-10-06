@@ -1,5 +1,5 @@
 import chai from 'chai'
-import { characterArrayFromString, getAnagram } from './index.js'
+import { characterArrayFromString, getAnagram, updateRemainingCharacters } from './index.js'
 import dict from './dict.js'
 
 const { assert, expect } = chai
@@ -24,15 +24,27 @@ describe('Word dictionary', function () {
 describe('Returns two word that is an anagram', function () {
     it('should return the words document and gin', function () {
         const result = getAnagram('documenting')
+        expect(result.length).to.be.equal(2)
         expect(result).to.include.members(['document', 'gin'])
     })
     it('should not care about word order', function () {
         const result = getAnagram('documenting')
+        expect(result.length).to.be.equal(2)
         expect(result).to.include.members(['gin', 'document'])
     })
     it('should return the words race and car', function () {
         const result = getAnagram('racecar')
+        expect(result.length).to.be.equal(2)
         expect(result).to.include.members(['race', 'car'])
+    })
+})
+
+describe('Updates array characters from word', function () {
+    it(`should remove the characters from the word 'document' leaving the letters 'i', 'n', and 'g'`, function () {
+        const chars = 'documenting'.split('')
+        const word = 'document'
+        const result = updateRemainingCharacters(chars, word)
+        expect(result).to.deep.equal(['i', 'n', 'g'])
     })
 })
 
